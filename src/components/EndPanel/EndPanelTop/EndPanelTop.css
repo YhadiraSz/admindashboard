@@ -3,8 +3,11 @@
   justify-content: end;
   gap: 2rem;
 }
+
 .right .top button {
   display: none;
+  border: none;
+  outline: none;
 }
 
 .right .theme-toggler {
@@ -16,6 +19,7 @@
   width: 4.2rem;
   cursor: pointer;
   border-radius: var(--border-radius-1);
+  transition: all 0.3s ease;
 }
 
 .right .theme-toggler .react-icons-sharp {
@@ -24,6 +28,7 @@
   display: flex;
   padding: 3px;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .right .theme-toggler .react-icons-sharp.active {
@@ -43,6 +48,7 @@
     width: 94%;
     margin: 0 auto 4rem;
   }
+
   .right .top {
     position: fixed;
     top: 0;
@@ -56,14 +62,17 @@
     z-index: 2;
     box-shadow: 0 1rem 1rem var(--color-light);
   }
+
   .right .top .theme-toggler {
     width: 4.4rem;
     position: absolute;
     left: 66%;
   }
+
   .right .profile .info {
     display: none;
   }
+
   .right .top button {
     display: inline-block;
     background: transparent;
@@ -73,5 +82,5 @@
     left: 1rem;
     font-size: 2rem;
   }
-
 }
+

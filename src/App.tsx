@@ -3,6 +3,9 @@ import "./App.css";
 import Aside from "./components/Aside/Aside";
 import EndPanel from "./components/EndPanel/EndPanel";
 import Main from "./components/Main/Main";
+import { ThemeProvider } from "./context/ThemeProvider";
+import { AnimatePresence, motion } from "framer-motion";
+import { overlayVariants } from "./animations/app-animations";
 
 function App() {
   const [isAsideVisible, setIsAsideVisible] = useState(true);
@@ -28,11 +31,28 @@ function App() {
   }, []);
 
   return (
-    <div className="container">
-      <Aside isVisible={isAsideVisible} toggleAside={toggleAside} />
-      <Main />
-      <EndPanel toggleAside={toggleAside} />
-    </div>
+    <ThemeProvider>
+      <div className="container">
+        <Aside isVisible={isAsideVisible} toggleAside={toggleAside} />
+
+        {/* Overlay for mobile when menu is open */}
+        <AnimatePresence>
+          {isAsideVisible && window.innerWidth <= 768 && (
+            <motion.div
+              className="overlay"
+              variants={overlayVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={toggleAside}
+            />
+          )}
+        </AnimatePresence>
+
+        <Main />
+        <EndPanel toggleAside={toggleAside} />
+      </div>
+    </ThemeProvider>
   );
 }
 

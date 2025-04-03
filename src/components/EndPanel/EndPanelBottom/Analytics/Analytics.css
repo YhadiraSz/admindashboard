@@ -1,5 +1,6 @@
 .right .sales-analytics {
   margin-top: 2rem;
+  will-change: transform, opacity;
 }
 
 .right .sales-analytics h2 {
@@ -16,17 +17,20 @@
   border-radius: var(--border-radius-3);
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 .right .sales-analytics .item:hover {
-  box-sizing: none;
+  box-shadow: none;
 }
+
 .right .sales-analytics .item .right {
   display: flex;
   justify-content: space-between;
   align-items: start;
   margin: 0;
   width: 100%;
+  will-change: transform, opacity;
 }
 
 .right .sales-analytics .item .icon {
@@ -35,11 +39,13 @@
   border-radius: 50%;
   display: flex;
   color: var(--color-white);
+  will-change: transform;
 }
 
 .right .sales-analytics .item.offline .icon {
   background-color: var(--color-danger);
 }
+
 .right .sales-analytics .item.customers .icon {
   background-color: var(--color-success);
 }
@@ -51,6 +57,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  will-change: transform, box-shadow;
 }
 
 .right .sales-analytics .add-product div {
@@ -58,6 +66,8 @@
   align-items: center;
   gap: 0.6rem;
 }
+
 .right .sales-analytics .add-product div h3 {
   font-weight: 600;
 }
+

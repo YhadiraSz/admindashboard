@@ -1,9 +1,30 @@
+import React from "react";
 import { products } from "../data/products";
 import "./Orders.css";
+import { motion } from "framer-motion";
+import {
+  ordersContainerVariants,
+  tableHeaderVariants,
+  tableRowVariants,
+  linkVariants,
+} from "../../../animations/orders-animations";
+
+// Precomputar las clases de estado
+const statusClassMap = {
+  pending: "warning",
+  declined: "danger",
+  delivered: "primary",
+};
+
 const Orders = () => {
   return (
-    <div className="recent-orders">
-      <h2>Recent Orders</h2>
+    <motion.div
+      className="recent-orders"
+      variants={ordersContainerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h2 variants={tableHeaderVariants}>Recent Orders</motion.h2>
       <table>
         <thead>
           <tr>
@@ -15,32 +36,44 @@ const Orders = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => {
+          {products.map((product, index) => {
+            const statusClass =
+              statusClassMap[product.status.toLowerCase() as keyof typeof statusClassMap] || "";
+
             return (
-              <tr key={product.id}>
+              <motion.tr
+                key={product.id}
+                variants={tableRowVariants}
+                custom={index}
+                whileHover={{
+                  backgroundColor: "rgba(0, 0, 0, 0.02)",
+                  transition: { duration: 0.2 },
+                }}
+              >
                 <td>{product.productName}</td>
                 <td>{product.productNumber}</td>
                 <td>{product.payment}</td>
-                <td
-                  className={
-                    {
-                      pending: "warning",
-                      declined: "danger",
-                      delivered: "primary",
-                    }[product.status.toLowerCase() || ""]
-                  }
+                <td className={statusClass}>{product.status}</td>
+                <motion.td
+                  className="primary"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 },
+                  }}
                 >
-                  {product.status}
-                </td>
-                <td className="primary">Details</td>
-              </tr>
+                  Details
+                </motion.td>
+              </motion.tr>
             );
           })}
         </tbody>
       </table>
-      <a href="#">Show all</a>
-    </div>
+      <motion.a href="#" variants={linkVariants} whileHover="hover">
+        Show all
+      </motion.a>
+    </motion.div>
   );
 };
 
-export default Orders;
+// Exportar con memoización
+export default React.memo(Orders);
