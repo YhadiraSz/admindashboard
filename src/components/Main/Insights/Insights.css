@@ -93,3 +93,11 @@ main .insights small {
   margin-top: 1.6rem;
   display: block;
 }
+
+
+@media screen and (max-width: 1200px) {
+  main .insights{
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

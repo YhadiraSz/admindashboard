@@ -33,5 +33,40 @@ main .recent-orders a {
   text-align: center;
   display: block;
   margin: 1rem auto;
-color: var();
+  color: var();
+}
+@media screen and (max-width: 1200px) {
+  main .recent-orders {
+    width: 94%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2rem 0 0 8.8rem;
+  }
+
+  main .recent-orders table {
+    width: 83vw;
+  }
+
+  main table thead tr th:last-child,
+  main table thead tr th:first-child {
+    display: none;
+  }
+
+  main table tbody tr td:last-child,
+  main table tbody tr td:first-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main .recent-orders {
+    position: relative;
+    margin: 3rem 0 0 0;
+    width: 100%;
+  }
+  main .recent-orders table {
+    width: 100%;
+    margin: 0;
+  }
 }

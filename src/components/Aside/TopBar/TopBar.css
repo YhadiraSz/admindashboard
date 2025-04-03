@@ -1,21 +1,43 @@
 aside .top {
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 1.4rem;
 }
 
-aside .logo{
-    display: flex;
-    gap: 0.8rem;
+aside .logo {
+  display: flex;
+  gap: 0.8rem;
 }
 
-aside .logo img{
-    width: 2rem;
-    height: 2rem;
+aside .logo img {
+  width: 2rem;
+  height: 2rem;
 }
 
-aside .close{
+/* aside .close {
+  display: none;
+} */
+
+@media screen and (max-width: 1200px) {
+  aside .logo h2 {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  aside .logo {
+    margin-left: 1rem;
+  }
+  aside .logo h2 {
+    display: inline;
+  }
+  aside .logo h3 {
+    display: inline;
+  }
+
+  aside .logo a {
+    width: 100%;
+    height: 3.4rem;
+  }
 }

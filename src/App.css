@@ -5,3 +5,17 @@
   gap: 1.8rem;
   grid-template-columns: 14rem auto 23rem;
 }
+
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 94%;
+    grid-template-columns: 7rem auto 23rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}

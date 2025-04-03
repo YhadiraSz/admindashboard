@@ -18,7 +18,7 @@ const Sidebar = () => {
             className={link.active ? "active" : ""}
           >
             <span>
-              <link.icon className="icon" />
+              <link.icon className="react-icons-sharp" />
             </span>
             <h3> {link.linkName}</h3>
             {messageCount}

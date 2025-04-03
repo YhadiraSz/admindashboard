@@ -27,4 +27,32 @@ export const products = [
     payment: "Due",
     status: "Delivered",
   },
+  {
+    id: 5,
+    productName: "Foldable Mini Drone",
+    productNumber: "85631",
+    payment: "Due",
+    status: "Delivered",
+  },
+  {
+    id: 6,
+    productName: "Foldable Mini Drone",
+    productNumber: "85631",
+    payment: "Due",
+    status: "Pending",
+  },
+  {
+    id: 7,
+    productName: "Foldable Mini Drone",
+    productNumber: "85631",
+    payment: "Due",
+    status: "Declined",
+  },
+  {
+    id: 8,
+    productName: "Foldable Mini Drone",
+    productNumber: "85631",
+    payment: "Due",
+    status: "Delivered",
+  },
 ];

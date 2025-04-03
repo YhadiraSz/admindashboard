@@ -1,13 +1,20 @@
 import Sidebar from "./Sidebar/Sidebar";
 import TopBar from "./TopBar/TopBar";
 import "./Aside.css";
-const Aside = () => {
-  return (
+
+const Aside = ({
+  isVisible,
+  toggleAside,
+}: {
+  isVisible: boolean;
+  toggleAside: () => void;
+}) => {
+  return isVisible ? (
     <aside>
-      <TopBar />
+      <TopBar toggleAside={toggleAside} /> {/* Pasamos toggleAside */}
       <Sidebar />
     </aside>
-  );
+  ) : null;
 };
 
 export default Aside;
