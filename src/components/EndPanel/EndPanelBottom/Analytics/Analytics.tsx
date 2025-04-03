@@ -1,14 +1,28 @@
 import { items } from "../../data/items";
 import "./Analytics.css";
 import { IoMdAdd } from "react-icons/io";
+import { motion } from "framer-motion";
+import {
+  analyticsContainerVariants,
+  analyticsHeaderVariants,
+  analyticsItemVariants,
+  iconVariants,
+  infoVariants,
+  addProductVariants,
+} from "../../../../animations/analytics-animations";
 
 const Analytics = () => {
   return (
-    <div className="sales-analytics">
-      <h2>Sales Analytics</h2>
+    <motion.div
+      className="sales-analytics"
+      variants={analyticsContainerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.h2 variants={analyticsHeaderVariants}>Sales Analytics</motion.h2>
       {items.map((item) => {
         return (
-          <div
+          <motion.div
             className={
               {
                 online: "item online",
@@ -17,11 +31,13 @@ const Analytics = () => {
               }[item.itemSection.toLowerCase() || "item"]
             }
             key={item.id}
+            variants={analyticsItemVariants}
+            whileHover="hover"
           >
-            <div className="icon">
+            <motion.div className="icon" variants={iconVariants}>
               <item.icon />
-            </div>
-            <div className="right">
+            </motion.div>
+            <motion.div className="right" variants={infoVariants}>
               <div className="info">
                 <h3>{item.itemName.toUpperCase()}</h3>
                 <small className="text-muted">{item.itemTime}</small>
@@ -38,17 +54,22 @@ const Analytics = () => {
                 </h5>
                 <h3>{item.itemMount}</h3>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         );
       })}
-      <div className="item add-product">
+      <motion.div
+        className="item add-product"
+        variants={addProductVariants}
+        whileHover="hover"
+        whileTap="tap"
+      >
         <div>
           <IoMdAdd className="react-icons-sharp" />
           <h3>Add Product</h3>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

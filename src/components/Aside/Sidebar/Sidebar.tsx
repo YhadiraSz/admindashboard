@@ -1,32 +1,48 @@
+import React from "react";
 import { links } from "../data/links";
 import "./Sidebar.css";
+import { motion } from "framer-motion";
+import {
+  linkVariants,
+  linkHoverAnimation,
+  linkTapAnimation,
+  sidebarContainerVariants,
+} from "../../../animations/sidebar-animations";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar">
+    <motion.div
+      className="sidebar"
+      variants={sidebarContainerVariants}
+      initial="closed"
+      animate="open"
+    >
       {links.map((link) => {
-        // Verificar si el link tiene el id 6 antes de renderizarlo
-        const messageCount =
-          link.id === 6 ? (
-            <span className="message-count">{link.message}</span>
-          ) : null;
+        const isMessageLink = link.id === 6;
+        const messageCount = isMessageLink ? (
+          <span className="message-count">{link.message}</span>
+        ) : null;
 
         return (
-          <a
+          <motion.a
+            variants={linkVariants}
             href={link.linkName.toLowerCase()}
             key={link.id}
             className={link.active ? "active" : ""}
+            whileHover={linkHoverAnimation}
+            whileTap={linkTapAnimation}
           >
             <span>
               <link.icon className="react-icons-sharp" />
             </span>
-            <h3> {link.linkName}</h3>
+            <h3>{link.linkName}</h3>
             {messageCount}
-          </a>
+          </motion.a>
         );
       })}
-    </div>
+    </motion.div>
   );
 };
 
-export default Sidebar;
+// Exportar con React.memo para evitar renderizados innecesarios
+export default React.memo(Sidebar);

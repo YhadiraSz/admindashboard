@@ -1,6 +1,9 @@
+import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import TopBar from "./TopBar/TopBar";
 import "./Aside.css";
+import { motion, AnimatePresence } from "framer-motion";
+import { asideVariants } from "../../animations/aside-animations";
 
 const Aside = ({
   isVisible,
@@ -9,12 +12,22 @@ const Aside = ({
   isVisible: boolean;
   toggleAside: () => void;
 }) => {
-  return isVisible ? (
-    <aside>
-      <TopBar toggleAside={toggleAside} /> {/* Pasamos toggleAside */}
-      <Sidebar />
-    </aside>
-  ) : null;
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.aside
+          initial="closed"
+          animate="open"
+          exit="closed"
+          variants={asideVariants}
+          className="visible"
+        >
+          <TopBar toggleAside={toggleAside} />
+          <Sidebar />
+        </motion.aside>
+      )}
+    </AnimatePresence>
+  );
 };
 
-export default Aside;
+export default React.memo(Aside);
