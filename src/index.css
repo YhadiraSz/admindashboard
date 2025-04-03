@@ -24,6 +24,17 @@
   --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
+/* Dark Mode Variables */
+.dark-mode-variables {
+  --color-background: #181a1e;
+  --color-white: #202528;
+  --color-dark: #edeffd;
+  --color-dark-variat: #a3bdcc;
+  --color-light: rgba(0, 0, 0, 0.4);
+  --color-info-dark: #bbc2ce;
+  --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -48,6 +59,7 @@ body {
   user-select: none;
   overflow-x: hidden;
   color: var(--color-dark);
+  transition: all 0.3s ease;
 }
 
 a {
@@ -118,3 +130,4 @@ b {
 .warning {
   color: var(--color-warning);
 }
+

@@ -1,6 +1,6 @@
-import profile2 from "../../../assets/images/profile-2.jpg";
-import profile3 from "../../../assets/images/profile-3.jpg";
-import profile4 from "../../../assets/images/profile-4.jpg";
+import profile2 from "../../../assets/images/profile-2.webp";
+import profile3 from "../../../assets/images/profile-3.webp";
+import profile4 from "../../../assets/images/profile-4.webp";
 
 export const users = [
   {

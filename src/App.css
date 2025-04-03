@@ -6,6 +6,17 @@
   grid-template-columns: 14rem auto 23rem;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Below the header */
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
   .container {
     width: 94%;
@@ -19,3 +30,4 @@
     grid-template-columns: 1fr;
   }
 }
+

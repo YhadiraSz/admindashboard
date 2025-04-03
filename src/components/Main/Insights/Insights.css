@@ -11,11 +11,13 @@ main .insights > div {
   margin-top: 1rem;
   box-shadow: var(--box-shadow);
   transition: all 300ms ease;
+  will-change: transform, box-shadow;
 }
 
 main .insights > div:hover {
   box-shadow: none;
 }
+
 main .insights > div .span {
   background-color: var(--color-primary);
   padding: 0.5rem;
@@ -54,6 +56,7 @@ main .insights .circle-svg {
   width: 7rem;
   height: 7rem;
 }
+
 main .insights .circle-svg circle {
   fill: none;
   stroke: var(--color-primary);
@@ -61,20 +64,17 @@ main .insights .circle-svg circle {
   stroke-linecap: round;
   transform: translate(5px, 5px);
   stroke-dasharray: 110;
-  stroke-dashoffset: 92;
 }
+
 main .insights .sales svg circle {
-  stroke-dashoffset: -30;
   stroke-dasharray: 200;
 }
 
 main .insights .expenses svg circle {
-  stroke-dashoffset: 20;
   stroke-dasharray: 80;
 }
 
 main .insights .income svg circle {
-  stroke-dashoffset: 35;
   stroke-dasharray: 110;
 }
 
@@ -94,10 +94,10 @@ main .insights small {
   display: block;
 }
 
-
 @media screen and (max-width: 1200px) {
-  main .insights{
+  main .insights {
     grid-template-columns: 1fr;
     gap: 0;
   }
 }
+

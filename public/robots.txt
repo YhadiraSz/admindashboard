@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /private/
+Allow: /imagenes/
+Allow: /assets/
+
+Sitemap: https://yhadira-dashboard.vercel.app/sitemap.xml
